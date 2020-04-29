@@ -1,0 +1,9 @@
+
+<button>{{CurrentDate| date:'dd-MM-yyyy EEE HH:mm:ss'}}</button>
+<div>
+  <p>Dia Semana: {{DiaS}}</p>
+  <p>Hora:  {{Hora}}</p>
+  <p>Minuto: {{Minuto}}</p>
+  <p>Segundo: {{Segundo}}</p>
+</div>  
+<div *ngIf='DiaS==0 && Hora==23 && Minuto==55 && Segundo>0 '>Es la hora de Cierre!!</div>
