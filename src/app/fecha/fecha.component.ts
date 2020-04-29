@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FechaComponent implements OnInit {
   CurrentDate: Date
+  CurrentDate2: Date
   Segundo: number
   Minuto: number
   Hora: number
@@ -16,22 +17,21 @@ export class FechaComponent implements OnInit {
 
   constructor() {  
     this.CurrentDate=new Date
-    this.Fecha()
-    this.Cierre()
+    setInterval(()=>{this.Cierre();}, 30000)
   }
 
   ngOnInit() {
   }
 
-  Fecha(){
-    console.log("CurrentDate ", this.CurrentDate)
-    this.Segundo=this.CurrentDate.getSeconds()
-    this.Minuto=this.CurrentDate.getMinutes()
-    this.Hora=this.CurrentDate.getHours()
-    this.DiaS=this.CurrentDate.getDay()
-  }
-
   Cierre(){
-    console.log("Cierre", this.CurrentDate)
+    this.CurrentDate2=new Date
+    this.Segundo=this.CurrentDate2.getSeconds()
+    this.Minuto=this.CurrentDate2.getMinutes()
+    this.Hora=this.CurrentDate2.getHours()
+    this.DiaS=this.CurrentDate2.getDay()
+    console.log("Cierre", this.CurrentDate2 )
+    if( this.Minuto==55 && this.DiaS==0 && this.Hora==23){
+      console.log("ES HORA DEL CIERRE")
+    }
   }
 }
